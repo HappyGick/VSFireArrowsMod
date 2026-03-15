@@ -1,0 +1,56 @@
+{
+	"code": "arrow-firearrow",
+	"class": "EntityProjectile",
+	"tags": [
+		"inanimate",
+		"projectile"
+	],
+	"attributes": {
+		"isProjectile": true
+	},
+	"hitboxSize": {
+		"x": 0.1,
+		"y": 0.1
+	},
+	"client": {
+		"size": 0.75,
+		"renderer": "Shape",
+		"shape": {
+			"base": "game:entity/nonliving/projectile/arrow/copper"
+		},
+		"textures": {
+			"material": {
+				"base": "game:block/stone/flint"
+			}
+		},
+		"behaviors": [
+			{
+				"code": "game:passivephysics",
+				"groundDragFactor": 1,
+				"airDragFactor": 0.25,
+				"gravityFactor": 0.75
+			},
+			{
+				"code": "game:interpolateposition"
+			}
+		]
+	},
+	"server": {
+		"behaviors": [
+			{
+				"code": "game:passivephysics",
+				"groundDragFactor": 1,
+				"airDragFactor": 0.25,
+				"gravityFactor": 0.75
+			},
+			{
+				"code": "game:despawn",
+				"minSeconds": 60
+			},
+			{
+				"code": "game:entitystatetags"
+			}
+		]
+	},
+	"sounds": {}
+}
