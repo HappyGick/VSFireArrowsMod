@@ -2,12 +2,12 @@
     "$schema": "https://moddbcdn.vintagestory.at/schema/modinfo.latest.json",
     "type": "Code",
     "modid": "firearrows",
-    "name": "FireArrows",
+    "name": "Fire Arrows",
     "authors": [
-        "Unknown"
+        "HappyGick"
     ],
-    "description": "To be added",
-    "version": "1.0.0",
+    "description": "Adds Fire Arrows for lighting your caves",
+    "version": "0.0.1",
     "dependencies": {
         "game": "1.21.0"
     }

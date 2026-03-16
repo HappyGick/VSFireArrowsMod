@@ -1,0 +1,54 @@
+[
+	{
+		"ingredientPattern": "GHT,_S_,_F_",
+		"ingredients": {
+            "G": { "type": "item", "code": "game:drygrass", "quantity": 2 },
+            "T": { "type": "block", "code": "game:torch-*-lit-up" },
+			"H": { "type": "item", "code": "game:arrowhead-flint" },
+			"S": { "type": "item", "code": "game:stick" },
+			"F": { "type": "item", "code": "game:feather" }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "firearrows:arrow-firearrow", "quantity": 1  }
+	},
+    {
+		"ingredientPattern": "GHT,_S_,_F_",
+		"ingredients": {
+            "G": { "type": "item", "code": "game:drygrass", "quantity": 8 },
+            "T": { "type": "block", "code": "game:torch-*-lit-up" },
+			"H": { "type": "item", "code": "game:arrowhead-flint", "quantity": 4 },
+			"S": { "type": "item", "code": "game:stick", "quantity": 4 },
+			"F": { "type": "item", "code": "game:feather", "quantity": 4 }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "firearrows:arrow-firearrow", "quantity": 4  }
+	},
+    {
+		"ingredientPattern": "GHT,_S_,_F_",
+		"ingredients": {
+            "G": { "type": "item", "code": "game:drygrass", "quantity": 16 },
+            "T": { "type": "block", "code": "game:torch-*-lit-up" },
+			"H": { "type": "item", "code": "game:arrowhead-flint", "quantity": 8 },
+			"S": { "type": "item", "code": "game:stick", "quantity": 8 },
+			"F": { "type": "item", "code": "game:feather", "quantity": 8 }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "firearrows:arrow-firearrow", "quantity": 8  }
+	},
+    {
+		"ingredientPattern": "GHT,_S_,_F_",
+		"ingredients": {
+            "G": { "type": "item", "code": "game:drygrass", "quantity": 32 },
+            "T": { "type": "block", "code": "game:torch-*-lit-up" },
+			"H": { "type": "item", "code": "game:arrowhead-flint", "quantity": 16 },
+			"S": { "type": "item", "code": "game:stick", "quantity": 16 },
+			"F": { "type": "item", "code": "game:feather", "quantity": 16 }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "firearrows:arrow-firearrow", "quantity": 16  }
+	}
+]

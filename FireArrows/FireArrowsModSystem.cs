@@ -1,5 +1,5 @@
-﻿using FireArrows.Items;
-using Vintagestory.API.Client;
+﻿using FireArrows.Entities;
+using FireArrows.Items;
 using Vintagestory.API.Common;
 
 namespace FireArrows;
@@ -11,5 +11,6 @@ public class FireArrowsModSystem : ModSystem
         base.Start(api);
         
         api.RegisterItemClass(Mod.Info.ModID + ".arrow-firearrow", typeof(ItemFireArrow));
+        api.RegisterEntity(Mod.Info.ModID + ".arrow-firearrow-entity", typeof(EntityFireArrow));
     }
 }
