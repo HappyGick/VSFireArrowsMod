@@ -1,0 +1,58 @@
+[
+  {
+    "op": "add",
+    "path": "/client/animations/127",
+    "value": {
+      "code": "interactstatictwohanded",
+      "animation": "interactstatictwohanded",
+      "animationSpeed": 1,
+      "easeInSpeed": 10,
+      "easeOutSpeed": 6,
+      "blendMode": "Add",
+      "weight": 0,
+      "elementWeight": {
+        "UpperArmR": 40,
+        "LowerArmR": 40,
+        "UpperArmL": 40,
+        "LowerArmL": 40,
+        "ItemAnchor": 40
+      },
+      "elementBlendMode": {
+        "UpperArmR": "AddAverage",
+        "LowerArmR": "AddAverage",
+        "UpperArmL": "AddAverage",
+        "LowerArmL": "AddAverage"
+      }
+    },
+    "file": "game:entities/humanoid/player.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/client/animations/128",
+    "value": {
+      "code": "interactstatictwohanded-fp",
+      "animation": "interactstatictwohanded-fp",
+      "animationSpeed": 1,
+      "easeInSpeed": 10,
+      "easeOutSpeed": 6,
+      "blendMode": "Add",
+      "weight": 0,
+      "elementWeight": {
+        "UpperArmR": 40,
+        "LowerArmR": 40,
+        "UpperArmL": 40,
+        "LowerArmL": 40,
+        "ItemAnchor": 40
+      },
+      "elementBlendMode": {
+        "UpperArmR": "AddAverage",
+        "LowerArmR": "AddAverage",
+        "UpperArmL": "AddAverage",
+        "LowerArmL": "AddAverage"
+      }
+    },
+    "file": "game:entities/humanoid/player.json",
+    "side": "Server"
+  }
+]
