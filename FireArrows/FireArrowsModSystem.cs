@@ -11,6 +11,7 @@ public class FireArrowsModSystem : ModSystem
         base.Start(api);
         
         api.RegisterItemClass(Mod.Info.ModID + ".arrow-firearrow", typeof(ItemFireArrow));
+        api.RegisterItemClass(Mod.Info.ModID + ".arrow-firearrow-lit", typeof(ItemFireArrowLit));
         api.RegisterEntity(Mod.Info.ModID + ".arrow-firearrow-entity", typeof(EntityFireArrow));
     }
 }

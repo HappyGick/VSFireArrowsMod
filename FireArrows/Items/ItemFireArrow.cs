@@ -22,4 +22,31 @@ public class ItemFireArrow : ItemArrow
         dsc.AppendLine();
         dsc.AppendLine(Lang.Get("firearrows:item-firearrow-flavortext"));
     }
+
+    public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
+    {
+        base.OnHeldInteractStart(slot, byEntity, blockSel, entitySel, firstEvent, ref handling);
+        byEntity.StartAnimation("interactstatictwohanded");
+        handling = EnumHandHandling.PreventDefault;
+    }
+
+    public override void OnHeldInteractStop(float secondsUsed, ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel)
+    {
+        byEntity.StopAnimation("interactstatictwohanded");
+    }
+
+    public override bool OnHeldInteractStep(float secondsUsed, ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel)
+    {
+        if (secondsUsed > 3f)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public override bool OnHeldInteractCancel(float secondsUsed, ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, EnumItemUseCancelReason cancelReason)
+    {
+        byEntity.StopAnimation("interactstatictwohanded");
+        return base.OnHeldInteractCancel(secondsUsed, slot, byEntity, blockSel, entitySel, cancelReason);
+    }
 }

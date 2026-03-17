@@ -10,7 +10,7 @@
 		},
 		"width": 3,
 		"height": 3,
-		"output": { "type": "item", "code": "firearrows:arrow-firearrow", "quantity": 1  }
+		"output": { "type": "item", "code": "firearrows:arrow-firearrow-unlit", "quantity": 1  }
 	},
     {
 		"ingredientPattern": "GHT,_S_,_F_",
@@ -23,7 +23,7 @@
 		},
 		"width": 3,
 		"height": 3,
-		"output": { "type": "item", "code": "firearrows:arrow-firearrow", "quantity": 4  }
+		"output": { "type": "item", "code": "firearrows:arrow-firearrow-unlit", "quantity": 4  }
 	},
     {
 		"ingredientPattern": "GHT,_S_,_F_",
@@ -36,7 +36,7 @@
 		},
 		"width": 3,
 		"height": 3,
-		"output": { "type": "item", "code": "firearrows:arrow-firearrow", "quantity": 8  }
+		"output": { "type": "item", "code": "firearrows:arrow-firearrow-unlit", "quantity": 8  }
 	},
     {
 		"ingredientPattern": "GHT,_S_,_F_",
@@ -49,6 +49,6 @@
 		},
 		"width": 3,
 		"height": 3,
-		"output": { "type": "item", "code": "firearrows:arrow-firearrow", "quantity": 16  }
+		"output": { "type": "item", "code": "firearrows:arrow-firearrow-unlit", "quantity": 16  }
 	}
 ]

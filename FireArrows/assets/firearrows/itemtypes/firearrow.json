@@ -1,13 +1,32 @@
 {
 	"code": "arrow-firearrow",
-	"class": "firearrows.arrow-firearrow",
+	"classByType": {
+		"*-lit": "firearrows.arrow-firearrow-lit",
+		"*-unlit": "firearrows.arrow-firearrow"
+	},
+	"variantGroups": [
+		{
+			"code": "state",
+			"states": [
+				"unlit",
+				"lit"
+			]
+		}
+	],
 	"maxstacksize": 64,
 	"storageFlags": 513,
 	"shape": { "base": "game:item/tool/arrow-copper" },
-    "textures": {
-        "material": {
-            "base": "firearrows:materials/flammable-lit"
-        }
+    "texturesByType": {
+		"*-unlit": {
+			"material": {
+				"base": "game:block/hay/normal-top"
+			}
+		},
+		"*-lit": {
+			"material": {
+				"base": "firearrows:materials/flammable-lit"
+			}
+		}
     },
 	"creativeinventory": { "general": ["*"], "items": ["*"], "tools": ["*"] },
 	"guiTransform": {
@@ -32,7 +51,10 @@
 		"scale": 2.64
 	},
 	"attributes": {
-        "arrowEntityCode": "firearrows:arrow-firearrow",
+        "arrowEntityCodeByType": {
+			"*-lit": "firearrows:arrow-firearrow-lit",
+			"*-unlit": "firearrows:arrow-firearrow-unlit"
+		},
 		"damage": -0.75,
 		"breakChanceOnImpact": 0.1,
 		"handbook": {
