@@ -1,40 +1,189 @@
 {
 	"code": "arrow-firearrow",
 	"class": "firearrows.arrow-firearrow",
+	"variantGroups": [
+		{
+			"code": "state",
+			"states": [
+				"extinct",
+				"lit"
+			]
+		}
+	],
 	"maxstacksize": 64,
 	"storageFlags": 513,
-	"shape": { "base": "game:item/tool/arrow-copper" },
-    "textures": {
-        "material": {
-            "base": "firearrows:materials/flammable-lit"
-        }
+	"shapeByType": {
+		"*-extinct": { "base": "firearrows:tool/firearrow" },
+		"*-lit": { "base": "firearrows:tool/firearrow-lit" }
+	},
+    "texturesByType": {
+		"*-extinct": {
+			"material": {
+				"base": "game:block/hay/normal-top"
+			}
+		},
+		"*-lit": {
+			"material": {
+				"base": "firearrows:materials/flammable-lit"
+			}
+		}
     },
 	"creativeinventory": { "general": ["*"], "items": ["*"], "tools": ["*"] },
 	"guiTransform": {
-		"rotation": { "x": -23, "y": -45, "z": -145 },
-		"origin": { "x": 0.7, "y": -0.45, "z": 0 },
-		"scale": 1.44
+		"translation": { "x": 1, "y": 2, "z": 0 },
+		"rotation": { "x": 22, "y": 15, "z": 142 },
+		"origin": { "x": 0.5, "y": 0.5, "z": 0.5 },
+		"scale": 1.45
 	},
 	"fpHandTransform": {
-		"translation": { "x": 0.35, "y": 0, "z": 0 },
-		"rotation": { "x": 87, "y": 90, "z": -30 },
-		"scale": 1.14
+		"translation": { "x": -0.5, "y": 0.1, "z": -0.9 },
+		"rotation": { "x": 0, "y": 0, "z": -90 },
+		"origin": { "x": 0.5, "y": 0, "z": 0.5 },
+		"scale": 0.55
 	},
 	"tpHandTransform": {
-		"translation": { "x": -1.05, "y": -0.4599, "z": -0.87 },
-		"rotation": { "x": 0, "y": 2, "z": 3 },
+		"translation": { "x": -0.5, "y": 0.1, "z": -0.9 },
+		"rotation": { "x": 0, "y": 0, "z": -90 },
+		"origin": { "x": 0.5, "y": 0, "z": 0.5 },
 		"scale": 0.55
 	},
 	"groundTransform": {
-		"translation": { "x": 0, "y": 0, "z": 0 },
-		"rotation": { "x": 0, "y": 0, "z": 0 },
-		"origin": { "x": 0.5, "y": -0.03, "z": 0.5 },
+		"translation": { "x": 0, "y": 0.05, "z": 0 },
+		"rotation": { "x": 90, "y": 0, "z": 0 },
 		"scale": 2.64
 	},
+	"particlePropertiesByType": {
+		"*-lit": [
+			{
+				"hsvaColor": [
+					{ "avg": 20, "var": 20 },
+					{ "avg": 255, "var": 50 },
+					{ "avg": 255, "var": 50 },
+					{ "avg": 255, "var": 0 }
+				],
+				"gravityEffect": { "dist": "invexp", "avg": -0.07, "var": 0.4 },
+				"posOffset": [ { "avg": 0, "var": 0.1 }, { "avg": -0.2, "var": 0 }, { "avg": 0, "var": 0.1 }],
+				"velocity": [ { "avg": 0, "var": 0.15 }, { "avg": 0.5, "var": 0.1 }, { "avg": 0, "var": 0.15 } ],
+				"quantity": { "avg": 0.025 },
+				"size": { "avg": 0.4, "var": 0 },
+				"sizeEvolve": { "transform": "quadratic", "factor": -0.7 },
+				"lifeLength": { "avg": 1.5 },
+				"vertexFlags": 128,
+				"windAffectednes": 0.2
+			},
+			{
+				"hsvaColor": [
+					{ "avg": 0, "var": 0 },
+					{ "avg": 0, "var": 0 },
+					{ "avg": 40, "var": 30 },
+					{ "avg": 190, "var": 30 }
+				],
+				"opacityEvolve": { "transform": "quadratic", "factor": -16 },
+				"posOffset": [ { "avg": 0, "var": 0.1 }, { "avg": -0.2, "var": 0 }, { "avg": 0, "var": 0.1 }],
+				"gravityEffect": { "avg": 0, "var": 0 },
+				"velocity": [ { "avg": 0, "var": 0.025 }, { "avg": 0.15, "var": 0.1 }, { "avg": 0, "var": 0.025 } ],
+				"quantity": { "avg": 0.15 },
+				"size": { "avg": 0.25, "var": 0.05 },
+				"sizeEvolve": { "transform": "linear", "factor": 0.5 },
+				"particleModel": "Quad",
+				"windAffectednes": 0.7
+			},
+			{
+				"hsvaColor": [
+					{ "avg": 20, "var": 20 },
+					{ "avg": 255, "var": 50 },
+					{ "avg": 255, "var": 50 },
+					{ "avg": 255, "var": 0 }
+				],
+				"opacityEvolve": { "transform": "quadratic", "factor": -20 },
+				"posOffset": [ { "avg": 0, "var": 0.15 }, { "avg": -0.2, "var": 0 }, { "avg": 0, "var": 0.15 }],
+				"gravityEffect": { "avg": 0, "var": 0 },
+				"velocity": [ { "avg": 0, "var": 0.025 }, { "avg": 0.45, "var": 0.07 }, { "avg": 0, "var": 0.025 } ],
+				"quantity": { "avg": 6 },
+				"size": { "avg": 0.35, "var": 0.05 },
+				"lifeLength": { "avg": 0.15 },
+				"sizeEvolve": { "transform": "linear", "factor": 0.25 },
+				"particleModel": "Quad",
+				"vertexFlags": 128,
+				"windAffectednes": 0.5
+			}
+		],
+		"*-extinct": []
+	},
+	"lightHsvByType": {
+		"*-lit": [4, 4, 14]
+	},
+	"materialDensity": 600,
 	"attributes": {
-        "arrowEntityCode": "firearrows:arrow-firearrow",
+        "arrowEntityCodeByType": {
+			"*-lit": "firearrows:arrow-firearrow-lit",
+			"*-extinct": "firearrows:arrow-firearrow-extinct"
+		},
 		"damage": -0.75,
 		"breakChanceOnImpact": 0.1,
+		"particlePropertiesByType": {
+			"*-lit": [
+				{
+					"hsvaColor": [
+						{ "avg": 20, "var": 20 },
+						{ "avg": 255, "var": 50 },
+						{ "avg": 255, "var": 50 },
+						{ "avg": 255, "var": 0 }
+					],
+					"gravityEffect": { "dist": "invexp", "avg": -0.07, "var": 0.4 },
+					"posOffset": [ { "avg": 0, "var": 0.1 }, { "avg": 0, "var": 0 }, { "avg": 0, "var": 0.1 }],
+					"velocity": [ { "avg": 0, "var": 0.15 }, { "avg": 0.5, "var": 0.1 }, { "avg": 0, "var": 0.15 } ],
+					"quantity": { "avg": 0.025 },
+					"size": { "avg": 0.4, "var": 0 },
+					"sizeEvolve": { "transform": "quadratic", "factor": -0.7 },
+					"lifeLength": { "avg": 1.5 },
+					"windAffectednes": 0.2
+				},
+				{
+					"hsvaColor": [
+						{ "avg": 0, "var": 0 },
+						{ "avg": 0, "var": 0 },
+						{ "avg": 40, "var": 30 },
+						{ "avg": 190, "var": 30 }
+					],
+					"opacityEvolve": { "transform": "quadratic", "factor": -16 },
+					"posOffset": [ { "avg": 0, "var": 0.1 }, { "avg": 0, "var": 0 }, { "avg": 0, "var": 0.1 }],
+					"gravityEffect": { "avg": 0, "var": 0 },
+					"velocity": [ { "avg": 0, "var": 0.025 }, { "avg": 0.15, "var": 0.1 }, { "avg": 0, "var": 0.025 } ],
+					"quantity": { "avg": 0.15 },
+					"size": { "avg": 0.25, "var": 0.05 },
+					"sizeEvolve": { "transform": "linear", "factor": 0.5 },
+					"particleModel": "Quad",
+					"windAffectednes": 0.7
+				},
+				{
+					"hsvaColor": [
+						{ "avg": 20, "var": 20 },
+						{ "avg": 255, "var": 50 },
+						{ "avg": 255, "var": 50 },
+						{ "avg": 255, "var": 0 }
+					],
+					"opacityEvolve": { "transform": "quadratic", "factor": -20 },
+					"posOffset": [ { "avg": 0, "var": 0.15 }, { "avg": 0, "var": 0 }, { "avg": 0, "var": 0.15 }],
+					"gravityEffect": { "avg": 0, "var": 0 },
+					"velocity": [ { "avg": 0, "var": 0.025 }, { "avg": 0.45, "var": 0.07 }, { "avg": 0, "var": 0.025 } ],
+					"quantity": { "avg": 6 },
+					"size": { "avg": 0.35, "var": 0.05 },
+					"lifeLength": { "avg": 0.15 },
+					"sizeEvolve": { "transform": "linear", "factor": 0.25 },
+					"particleModel": "Quad",
+					"windAffectednes": 0.5
+				}
+			],
+			"*-extinct": []
+		},
+		"particleOffsetByType": {
+			"*-lit": {
+				"x": -0.5,
+				"y": -0.25,
+				"z": -0.5
+			}
+		},
 		"handbook": {
 			"groupBy": ["arrow-*"]
 		}
