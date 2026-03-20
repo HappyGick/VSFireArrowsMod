@@ -2,14 +2,14 @@
 	"code": "arrow-firearrow",
 	"classByType": {
 		"*-lit": "firearrows.arrow-firearrow-entity",
-		"*-unlit": "EntityProjectile"
+		"*-extinct": "EntityProjectile"
 	},
 	"variantGroups": [
 		{
 			"code": "state",
 			"states": [
 				"lit",
-				"unlit"
+				"extinct"
 			]
 		}
 	],
@@ -20,7 +20,7 @@
 	"attributes": {
 		"isProjectile": true,
 		"lightHsvByType": {
-			"*-unlit": [0, 0, 0],
+			"*-extinct": [0, 0, 0],
 			"*-lit": [4, 4, 14]
 		},
 		"particlePropertiesByType": {
@@ -79,7 +79,7 @@
 					"windAffectednes": 0.5
 				}
 			],
-			"*-unlit": []
+			"*-extinct": []
 		}
 	},
 	"hitboxSize": {
@@ -89,11 +89,12 @@
 	"client": {
 		"size": 0.75,
 		"renderer": "Shape",
-		"shape": {
-			"base": "game:entity/nonliving/projectile/arrow/copper"
+		"shapeByType": {
+			"*-extinct": { "base": "firearrows:entity/nonliving/firearrow" },
+			"*-lit": { "base": "firearrows:entity/nonliving/firearrow-lit" }
 		},
 		"texturesByType": {
-			"*-unlit": {
+			"*-extinct": {
 				"material": {
 					"base": "game:block/hay/normal-top"
 				}
@@ -128,7 +129,7 @@
 				"code": "despawn",
 				"minSecondsByType": {
 					"*-lit": 60,
-					"*-unlit": 300
+					"*-extinct": 300
 				}
 			},
 			{
