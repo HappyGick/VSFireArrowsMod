@@ -31,6 +31,42 @@ public class EntityFireArrow : EntityProjectile
         {
             accDt += dt;
         }
+
+        if (Swimming && Code.EndVariant() == "lit" && World.Side == EnumAppSide.Server)
+        {
+            LightHsv = [];
+            ParticleProperties = [];
+
+            AssetLocation newCode = Code.CopyWithPath("arrow-firearrow-extinct");
+            EntityProperties type = World.GetEntityType(newCode);
+            
+            Entity newEntity = World.Api.ClassRegistry.CreateEntity(type);
+            var entityarrow = newEntity as IProjectile;
+
+            var assetLoc = ProjectileStack.Collectible.CodeWithParts("extinct");
+            var item = World.GetItem(assetLoc);
+            var stack = new ItemStack(item, ProjectileStack.StackSize);
+
+            entityarrow.FiredBy = FiredBy;
+            entityarrow.Damage = Damage;
+            entityarrow.DamageTier = DamageTier;
+            entityarrow.ProjectileStack = stack;
+            entityarrow.DropOnImpactChance = DropOnImpactChance;
+            entityarrow.IgnoreInvFrames = IgnoreInvFrames;
+            entityarrow.WeaponStack = stack;
+            entityarrow.DamageStackOnImpact = DamageStackOnImpact;
+            
+            newEntity.ServerPos.SetFrom(ServerPos);
+            newEntity.Pos.SetFrom(Pos);
+            newEntity.World = World;
+            entityarrow.PreInitialize();
+
+            newEntity.Attributes = Attributes.Clone();
+            
+            Api.World.PlaySoundAt(new AssetLocation("sounds/effect/extinguish"), Pos.X + 0.5, Pos.InternalY + 0.75, Pos.Z + 0.5, null, false, 16);
+            World.SpawnEntity(newEntity);
+            Die();
+        }
     }
 
     private bool RenderParticles(Vec3d atPosition, IWorldAccessor world, float dt)
