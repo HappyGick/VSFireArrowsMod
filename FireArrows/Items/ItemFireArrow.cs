@@ -87,32 +87,27 @@ public class ItemFireArrow : ItemArrow, IIgnitable
     public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
     {
         var world = byEntity.World;
-        if (byEntity.LeftHandItemSlot.Itemstack != null && isExtinct)
+        if (isExtinct && byEntity.LeftHandItemSlot.Itemstack is { } stack && stack.Collectible is BlockTorch bt && !bt.IsExtinct)
         {
-            if (byEntity.LeftHandItemSlot.Itemstack.Collectible is BlockTorch)
+            byEntity.StartAnimation("interactstatictwohanded");
+            handling = EnumHandHandling.PreventDefault;
+            return;
+        }
+
+        if (blockSel?.Position is { } pos && world.BlockAccessor.GetBlock(pos).GetInterface<IIgnitable>(world, pos) is { } ign)
+        {
+            if (byEntity is EntityPlayer player && !world.Claims.TryAccess(player.Player, pos, EnumBlockAccessFlags.Use))
             {
-                byEntity.StartAnimation("interactstatictwohanded");
-                handling = EnumHandHandling.PreventDefault;
                 return;
             }
-        }
-        else
-        {
-            if (blockSel?.Position is { } pos && world.BlockAccessor.GetBlock(pos).GetInterface<IIgnitable>(world, pos) is { } ign)
-            {
-                if (byEntity is EntityPlayer player && !world.Claims.TryAccess(player.Player, pos, EnumBlockAccessFlags.Use))
-                {
-                    return;
-                }
 
-                if (isExtinct)
+            if (isExtinct)
+            {
+                if (ign.OnTryIgniteStack(byEntity, pos, slot, 0) == EnumIgniteState.Ignitable)
                 {
-                    if (ign.OnTryIgniteStack(byEntity, pos, slot, 0) == EnumIgniteState.Ignitable)
-                    {
-                        byEntity.World.PlaySoundAt(new AssetLocation("sounds/torch-ignite"), byEntity, (byEntity as EntityPlayer)?.Player, false, 16);
-                        handling = EnumHandHandling.PreventDefault;
-                        return;
-                    }
+                    byEntity.World.PlaySoundAt(new AssetLocation("sounds/torch-ignite"), byEntity, (byEntity as EntityPlayer)?.Player, false, 16);
+                    handling = EnumHandHandling.PreventDefault;
+                    return;
                 }
             }
         }
@@ -132,7 +127,7 @@ public class ItemFireArrow : ItemArrow, IIgnitable
 
         var world = byEntity.World;
 
-        if (byEntity.LeftHandItemSlot.Itemstack?.Collectible is IIgnitable coll)
+        if (byEntity.LeftHandItemSlot.Itemstack?.Collectible is BlockTorch coll && !coll.IsExtinct)
         {
             return TryIgnite(coll, world, blockSel, entitySel, byEntity, null, slot, secondsUsed);
         }
