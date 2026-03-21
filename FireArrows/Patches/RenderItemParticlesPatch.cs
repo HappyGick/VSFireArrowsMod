@@ -3,6 +3,7 @@ namespace FireArrows.Patches;
 using HarmonyLib;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
 using Vintagestory.GameContent;
 
@@ -37,7 +38,9 @@ public class RenderItemParticlesPatch
 
             ItemStack stack = entityitem.Itemstack;
             // my workaround for this bug: https://github.com/anegostudios/VintageStory-Issues/issues/8736
-            AdvancedParticleProperties[] ParticleProperties = stack.Collectible.Attributes["particleProperties"].AsArray<AdvancedParticleProperties>();
+            if (stack.Collectible.Attributes is not { } attrs) return;
+            if (attrs["particleProperties"] is not { } obj) return;
+            AdvancedParticleProperties[] ParticleProperties = obj.AsArray<AdvancedParticleProperties>();
 
             if (ParticleProperties == null || ParticleProperties.Length == 0) return; // skip the heavy calculations if we don't have particles
 
