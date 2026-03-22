@@ -16,4 +16,4 @@ I'll maybe perfect this mod in my free time (for example with better visuals), i
 - [ ] Split this into tiers and add modifiers to the arrows. Using resin, for example, could make them last longer. Currently it's just dry grass and they last 60 seconds, but I want to make this more nuanced
 - [ ] Light certain entities on fire if you hit them with these lol
 - [ ] Secret easter egg that my girlfriend requested
-- [ ] Add some images to this mod page lmao
+- [ ] Add some images to the mod page lmao
