@@ -185,6 +185,10 @@
 				"z": -0.5
 			}
 		},
+		"attachableShapeByType": {
+			"*-lit": "firearrows:entity/nonliving/firearrow-lit",
+			"*-extinct": "firearrows:entity/nonliving/firearrow"
+		},
 		"handbook": {
 			"groupBy": ["arrow-*"]
 		}
