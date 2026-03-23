@@ -10,6 +10,7 @@
 			]
 		}
 	],
+	"behaviors": [],
 	"maxstacksize": 64,
 	"storageFlags": 513,
 	"shapeByType": {
