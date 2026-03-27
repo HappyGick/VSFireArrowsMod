@@ -20,7 +20,10 @@
                         "DamageTierBonus": -1,
                         "SpeedThreshold": 0.3,
                         "Knockback": 0.5,
-                        "EntityCode": "firearrows:arrow-firearrow",
+                        "EntityCodeByType": {
+                            "*-lit": "firearrows:arrow-firearrow-lit",
+                            "*-extinct": "firearrows:arrow-firearrow-extinct"
+                        },
                         "HitSound": "game:sounds/player/projectilehit",
                         "DurabilityDamage": 0,
                         "DropChance": 0.90
@@ -28,5 +31,67 @@
                 }
             }
         ]
+    },
+    {
+        "dependsOn": [
+            {
+                "modid": "combatoverhaul"
+            }
+        ],
+        "file": "firearrows:entities/firearrow",
+        "path": "/classByType",
+        "op": "replace",
+        "value": {
+            "*-lit": "firearrows.arrow-firearrow-entity-combatoverhaul",
+            "*-extinct": "CombatOverhaul:Projectile"
+        }
+    },
+    {
+        "dependsOn": [
+            {
+                "modid": "combatoverhaul"
+            }
+        ],
+        "file": "firearrows:entities/firearrow",
+        "path": "/client/behaviors",
+        "op": "replace",
+        "value": [
+            {
+                "code": "CombatOverhaul:ProjectilePhysics",
+                "groundDragFactor": 1,
+                "airDragFactor": 1,
+                "gravityFactor": 1.15
+            },
+            {
+                "code": "interpolateposition"
+            }
+        ]
+    },
+    {
+        "dependsOn": [
+            {
+                "modid": "combatoverhaul"
+            }
+        ],
+        "file": "firearrows:entities/firearrow",
+        "path": "/server/behaviors/0",
+        "op": "replace",
+        "value": {
+            "code": "CombatOverhaul:ProjectilePhysics",
+            "groundDragFactor": 1,
+            "airDragFactor": 1,
+            "gravityFactor": 1.15
+        }
+    },
+    {
+        "dependsOn": [
+            {
+                "modid": "combatoverhaul"
+            }
+        ],
+        "file": "firearrows:entities/firearrow",
+        "path": "/client/size",
+        "op": "replace",
+        "value": 0.55
     }
 ]

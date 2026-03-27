@@ -86,6 +86,7 @@
 		"x": 0.1,
 		"y": 0.1
 	},
+	"weight": 30.0,
 	"client": {
 		"size": 0.75,
 		"renderer": "Shape",
@@ -123,7 +124,7 @@
 				"code": "passivephysics",
 				"groundDragFactor": 1,
 				"airDragFactor": 0.25,
-				"gravityFactor": 1.25
+				"gravityFactor": 1.15
 			},
 			{
 				"code": "despawn",

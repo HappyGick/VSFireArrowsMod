@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using FireArrows.Entities;
+using FireArrows.Integrations.CombatOverhaul.Entities;
 using FireArrows.Items;
 using FireArrows.Patches;
 using HarmonyLib;
@@ -19,6 +20,11 @@ public class FireArrowsModSystem : ModSystem
         
         api.RegisterItemClass(Mod.Info.ModID + ".arrow-firearrow", typeof(ItemFireArrow));
         api.RegisterEntity(Mod.Info.ModID + ".arrow-firearrow-entity", typeof(EntityFireArrow));
+
+        if (api.ModLoader.IsModEnabled("combatoverhaul"))
+        {
+            api.RegisterEntity(Mod.Info.ModID + ".arrow-firearrow-entity-combatoverhaul", typeof(EntityFireArrowCO));
+        }
     }
 
     public override void StartClientSide(ICoreClientAPI api)
@@ -28,7 +34,7 @@ public class FireArrowsModSystem : ModSystem
         harmony = new Harmony(Mod.Info.ModID);
         harmony.PatchAll();
 
-        if (api.ModLoader.IsModEnabled("overhaullib"))
+        if (api.ModLoader.IsModEnabled("combatoverhaul"))
         {
             ApplyOverhaulLibPatches(api);
         }
@@ -38,7 +44,7 @@ public class FireArrowsModSystem : ModSystem
 
     private void ApplyOverhaulLibPatches(ICoreClientAPI api)
     {
-        api.Logger.Notification("[FireArrows] OverhaulLib was found, attempting to apply patches...");
+        api.Logger.Notification("[FireArrows] CombatOverhaul is enabled, attempting to apply patches...");
         Type attachmentType = AccessTools.TypeByName("CombatOverhaul.Animations.Attachment");
         if (attachmentType == null) return;
 
