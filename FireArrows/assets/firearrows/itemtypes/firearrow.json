@@ -29,6 +29,22 @@
 			}
 		}
     },
+	"combustiblePropsbyType": {
+		"*-lit": {
+			"burnTemperature": 600,
+			"burnDuration": 8
+		},
+		"*-extinct": {
+			"burnTemperature": 600,
+			"burnDuration": 8,
+			"meltingPoint": 300,
+			"meltingDuration": 1,
+			"smeltedRatio": 1,
+			"smeltingType": "convert",
+			"smeltedStack": { "type": "item", "code": "arrow-firearrow-lit" },
+			"requiresContainer": false
+		}
+	},
 	"creativeinventory": { "general": ["*"], "items": ["*"], "tools": ["*"] },
 	"guiTransform": {
 		"translation": { "x": 1, "y": 2, "z": 0 },

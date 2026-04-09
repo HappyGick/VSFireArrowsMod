@@ -10,5 +10,26 @@
 		"width": 3,
 		"height": 3,
 		"output": { "type": "item", "code": "firearrows:arrow-firearrow-extinct", "quantity": 1  }
+	},
+	{
+		"ingredientPattern": "G,A",
+		"ingredients": {
+			"G": { "type": "item", "code": "game:drygrass", "quantity": 2 },
+			"A": { "type": "item", "code": "game:arrow-flint" }
+		},
+		"width": 1,
+		"height": 2,
+		"output": { "type": "item", "code": "firearrows:arrow-firearrow-extinct", "quantity": 1  }
+	},
+	{
+		"ingredientPattern": "G,C,F",
+		"ingredients": {
+			"G": { "type": "item", "code": "game:drygrass", "quantity": 2 },
+			"C": { "type": "item", "code": "game:arrow-crude" },
+			"F": { "type": "item", "code": "game:feather" }
+		},
+		"width": 1,
+		"height": 3,
+		"output": { "type": "item", "code": "firearrows:arrow-firearrow-extinct", "quantity": 1  }
 	}
 ]
