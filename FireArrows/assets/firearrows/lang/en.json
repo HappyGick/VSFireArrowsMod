@@ -1,5 +1,7 @@
 {
 	"item-arrow-firearrow-lit": "Fire arrow",
 	"item-arrow-firearrow-extinct": "Fire arrow (unlit)",
-	"item-firearrow-flavortext": "Because of its weight and lack of sharpness, it might not be very useful for combat. However, its fire is very bright, so it can bring light to the dark."
+	"item-firearrow-flavortext": "Because of its weight and lack of sharpness, it might not be very useful for combat. However, its fire is very bright, so it can bring light to the dark.",
+	"item-firearrow-instructions": "Must be lit to provide light. Hold a lit torch in your left hand, then hold the arrow in your right hand, then hold right click.<br>Can also be lit the same way torches can.",
+	"item-firearrow-hotbarhelp": "Ignite"
 }

@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
+using Vintagestory.API.Util;
 using Vintagestory.GameContent;
 
 namespace FireArrows.Items;
@@ -15,6 +17,7 @@ public class ItemFireArrow : ItemArrow, IIgnitable
     private bool changedState = false;
     public bool IsExtinct => isExtinct;
     public CollectibleObject? ExtinctVariant { get; private set; }
+    private WorldInteraction[] interactions = [];
     public override void OnLoaded(ICoreAPI api)
     {
         base.OnLoaded(api);
@@ -25,6 +28,35 @@ public class ItemFireArrow : ItemArrow, IIgnitable
             ExtinctVariant = api.World.GetItem(loc);
             isExtinct = Variant["state"] == "extinct";
             isLit = Variant["state"] == "lit";
+        }
+
+        if (isExtinct)
+        {
+            interactions = ObjectCacheUtil.GetOrCreate<WorldInteraction[]>(api, "firearrowInteractions", () =>
+            {
+                List<ItemStack> torchStacks = [];
+                foreach (CollectibleObject obj in api.World.Collectibles)
+                {
+                    if (obj is BlockTorch torch && torch.LastCodePart(1) == "lit")
+                    {
+                        Console.WriteLine(obj.Code);
+                        var stacks = obj.GetHandBookStacks(api as ICoreClientAPI);
+                        if (stacks != null)
+                        {
+                            torchStacks.AddRange(stacks);
+                        }
+                    }
+                }
+                
+                return [
+                    new WorldInteraction()
+                    {
+                        ActionLangCode = "firearrows:item-firearrow-hotbarhelp",
+                        MouseButton = EnumMouseButton.Right,
+                        Itemstacks = [.. torchStacks]
+                    },
+                ];
+            });
         }
     }
 
@@ -78,7 +110,23 @@ public class ItemFireArrow : ItemArrow, IIgnitable
         base.GetHeldItemInfo(inSlot, dsc, world, withDebugInfo);
 
         dsc.AppendLine();
-        dsc.AppendLine(Lang.Get("firearrows:item-firearrow-flavortext"));
+        if (isExtinct)
+        {
+            dsc.AppendLine(Lang.Get("firearrows:item-firearrow-instructions"));
+        }
+        else
+        {
+            dsc.AppendLine(Lang.Get("firearrows:item-firearrow-flavortext"));
+        }
+    }
+
+    public override WorldInteraction[] GetHeldInteractionHelp(ItemSlot inSlot)
+    {   
+        return
+        [
+            .. interactions,
+            .. base.GetHeldInteractionHelp(inSlot),
+        ];
     }
 
     public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
