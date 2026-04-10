@@ -7,7 +7,7 @@
         "HappyGick"
     ],
     "description": "Combat Overhaul compatibility for Fire Arrows",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "dependencies": {
         "game": "1.21.0",
         "firearrows": "0.1.0",
