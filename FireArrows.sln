@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
@@ -6,6 +6,8 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireArrows", "FireArrows\FireArrows.csproj", "{CB2100BC-F653-402A-9FBA-EA463C2BD4FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakeBuild", "CakeBuild\CakeBuild.csproj", "{BC68EDF6-C294-4819-B7F4-9EA99B73E69D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireArrows.CombatOverhaul", "FireArrows.CombatOverhaul\FireArrows.CombatOverhaul.csproj", "{E7A3F2B1-C4D6-4E8F-9A0B-1C2D3E4F5A6B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +26,9 @@ Global
 		{CB2100BC-F653-402A-9FBA-EA463C2BD4FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB2100BC-F653-402A-9FBA-EA463C2BD4FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB2100BC-F653-402A-9FBA-EA463C2BD4FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7A3F2B1-C4D6-4E8F-9A0B-1C2D3E4F5A6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7A3F2B1-C4D6-4E8F-9A0B-1C2D3E4F5A6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7A3F2B1-C4D6-4E8F-9A0B-1C2D3E4F5A6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7A3F2B1-C4D6-4E8F-9A0B-1C2D3E4F5A6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

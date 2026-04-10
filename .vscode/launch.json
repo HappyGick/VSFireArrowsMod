@@ -21,9 +21,9 @@
                 // "--openWorld" , "modding test world",
                 "--tracelog",
                 "--addModPath",
-                "${workspaceFolder}/FireArrows/bin/Debug/Mods",
+                "${workspaceFolder}/bin/Debug/Mods",
                 "--addOrigin",
-                "${workspaceFolder}/FireArrows/assets"
+                "${workspaceFolder}/assets",
             ],
             "console": "internalConsole",
             "stopAtEntry": false
@@ -43,9 +43,9 @@
             "args": [
                 "--tracelog",
                 "--addModPath",
-                "${workspaceFolder}/FireArrows/bin/Debug/Mods",
-                 "--addOrigin",
-                 "${workspaceFolder}/FireArrows/assets"
+                "${workspaceFolder}/bin/Debug/Mods",
+                "--addOrigin",
+                "${workspaceFolder}/assets",
             ],
             "console": "internalConsole",
             "stopAtEntry": false

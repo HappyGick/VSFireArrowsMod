@@ -1,0 +1,97 @@
+[
+    {
+        "dependsOn": [
+            {
+                "modid": "combatoverhaul"
+            }
+        ],
+        "file": "firearrows:itemtypes/firearrow",
+        "path": "/behaviors",
+        "op": "addmerge",
+        "value": [
+            {
+                "name": "CombatOverhaul:Projectile",
+                "properties": {
+                    "stats": {
+                        "AdditionalDurabilityCost": 0,
+                        "CollisionRadius": 0.02,
+                        "PenetrationDistance": 0.1,
+                        "DamageStats": {"DamageType": "SlashingAttack", "Damage": 2},
+                        "DamageTierBonus": -1,
+                        "SpeedThreshold": 0.3,
+                        "Knockback": 0.5,
+                        "EntityCodeByType": {
+                            "*-lit": "firearrows:arrow-firearrow-lit",
+                            "*-extinct": "firearrows:arrow-firearrow-extinct"
+                        },
+                        "HitSound": "game:sounds/player/projectilehit",
+                        "DurabilityDamage": 0,
+                        "DropChance": 0.90
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "dependsOn": [
+            {
+                "modid": "combatoverhaul"
+            }
+        ],
+        "file": "firearrows:entities/firearrow",
+        "path": "/classByType",
+        "op": "replace",
+        "value": {
+            "*-lit": "firearrowscocompat.arrow-firearrow-entity-combatoverhaul",
+            "*-extinct": "CombatOverhaul:Projectile"
+        }
+    },
+    {
+        "dependsOn": [
+            {
+                "modid": "combatoverhaul"
+            }
+        ],
+        "file": "firearrows:entities/firearrow",
+        "path": "/client/behaviors",
+        "op": "replace",
+        "value": [
+            {
+                "code": "CombatOverhaul:ProjectilePhysics",
+                "groundDragFactor": 1,
+                "airDragFactor": 1,
+                "gravityFactor": 1.15
+            },
+            {
+                "code": "interpolateposition"
+            }
+        ]
+    },
+    {
+        "dependsOn": [
+            {
+                "modid": "combatoverhaul"
+            }
+        ],
+        "file": "firearrows:entities/firearrow",
+        "path": "/server/behaviors/0",
+        "op": "replace",
+        "value": {
+            "code": "CombatOverhaul:ProjectilePhysics",
+            "groundDragFactor": 1,
+            "airDragFactor": 1,
+            "gravityFactor": 1.15
+        }
+    },
+    {
+        "dependsOn": [
+            {
+                "modid": "combatoverhaul"
+            }
+        ],
+        "file": "firearrows:entities/firearrow",
+        "path": "/client/size",
+        "op": "replace",
+        "value": 0.55
+    }
+]

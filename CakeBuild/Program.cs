@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Collections.Generic;
 using Cake.Common;
 using Cake.Common.IO;
 using Cake.Common.Tools.DotNet;
@@ -14,6 +15,8 @@ using Vintagestory.API.Common;
 
 namespace CakeBuild;
 
+public record ModProject(string ProjectName, string ProjectDir, string ModDirName);
+
 public static class Program
 {
     public static int Main(string[] args)
@@ -26,10 +29,13 @@ public static class Program
 
 public class BuildContext : FrostingContext
 {
-    public const string ProjectName = "FireArrows";
+    public static readonly ModProject[] Mods =
+    [
+        new("FireArrows", "FireArrows", "base"),
+        new("FireArrows.CombatOverhaul", "FireArrows.CombatOverhaul", "cocompat"),
+    ];
+
     public string BuildConfiguration { get; }
-    public string Version { get; }
-    public string Name { get; }
     public bool SkipJsonValidation { get; }
 
     public BuildContext(ICakeContext context)
@@ -37,9 +43,6 @@ public class BuildContext : FrostingContext
     {
         BuildConfiguration = context.Argument("configuration", "Release");
         SkipJsonValidation = context.Argument("skipJsonValidation", false);
-        var modInfo = context.DeserializeJsonFromFile<ModInfo>($"../{ProjectName}/modinfo.json");
-        Version = modInfo.Version;
-        Name = modInfo.ModID;
     }
 }
 
@@ -52,7 +55,7 @@ public sealed class ValidateJsonTask : FrostingTask<BuildContext>
         {
             return;
         }
-        var jsonFiles = context.GetFiles($"../{BuildContext.ProjectName}/assets/**/*.json");
+        var jsonFiles = context.GetFiles($"../assets/**/*.json");
         foreach (var file in jsonFiles)
         {
             try
@@ -74,18 +77,22 @@ public sealed class BuildTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-        context.DotNetClean($"../{BuildContext.ProjectName}/{BuildContext.ProjectName}.csproj",
-            new DotNetCleanSettings
-            {
-                Configuration = context.BuildConfiguration
-            });
+        foreach (var mod in BuildContext.Mods)
+        {
+            var csproj = $"../{mod.ProjectDir}/{mod.ProjectName}.csproj";
 
+            context.DotNetClean(csproj,
+                new DotNetCleanSettings
+                {
+                    Configuration = context.BuildConfiguration
+                });
 
-        context.DotNetPublish($"../{BuildContext.ProjectName}/{BuildContext.ProjectName}.csproj",
-            new DotNetPublishSettings
-            {
-                Configuration = context.BuildConfiguration
-            });
+            context.DotNetPublish(csproj,
+                new DotNetPublishSettings
+                {
+                    Configuration = context.BuildConfiguration
+                });
+        }
     }
 }
 
@@ -97,18 +104,31 @@ public sealed class PackageTask : FrostingTask<BuildContext>
     {
         context.EnsureDirectoryExists("../Releases");
         context.CleanDirectory("../Releases");
-        context.EnsureDirectoryExists($"../Releases/{context.Name}");
-        context.CopyFiles($"../{BuildContext.ProjectName}/bin/{context.BuildConfiguration}/Mods/mod/publish/*", $"../Releases/{context.Name}");
-        if (context.DirectoryExists($"../{BuildContext.ProjectName}/assets"))
+
+        foreach (var mod in BuildContext.Mods)
         {
-            context.CopyDirectory($"../{BuildContext.ProjectName}/assets", $"../Releases/{context.Name}/assets");
+            var modInfo = context.DeserializeJsonFromFile<ModInfo>($"../{mod.ProjectDir}/modinfo.json");
+            var modName = modInfo.ModID;
+            var version = modInfo.Version;
+            var publishDir = $"../bin/{context.BuildConfiguration}/Mods/{mod.ModDirName}/publish";
+
+            context.EnsureDirectoryExists($"../Releases/{modName}");
+            context.CopyFiles($"{publishDir}/*", $"../Releases/{modName}");
+
+            if (context.DirectoryExists($"../assets/{modName}"))
+            {
+                context.CopyDirectory($"../assets/{modName}", $"../Releases/{modName}/assets/{modName}");
+            }
+
+            context.CopyFile($"../{mod.ProjectDir}/modinfo.json", $"../Releases/{modName}/modinfo.json");
+
+            if (context.FileExists($"../{mod.ProjectDir}/modicon.png"))
+            {
+                context.CopyFile($"../{mod.ProjectDir}/modicon.png", $"../Releases/{modName}/modicon.png");
+            }
+
+            context.Zip($"../Releases/{modName}", $"../Releases/{modName}_{version}.zip");
         }
-        context.CopyFile($"../{BuildContext.ProjectName}/modinfo.json", $"../Releases/{context.Name}/modinfo.json");
-        if (context.FileExists($"../{BuildContext.ProjectName}/modicon.png"))
-        {
-            context.CopyFile($"../{BuildContext.ProjectName}/modicon.png", $"../Releases/{context.Name}/modicon.png");
-        }
-        context.Zip($"../Releases/{context.Name}", $"../Releases/{context.Name}_{context.Version}.zip");
     }
 }
 
