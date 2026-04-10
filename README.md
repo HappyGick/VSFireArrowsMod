@@ -8,7 +8,7 @@ In real life, fire arrows were used in past wars to light structures on fire and
 I'll maybe perfect this mod in my free time (for example with better visuals), in the meantime, any features I add are specifically for my girlfriend and I.
 
 ## In this repo
-This is a monorepo containing The [Fire Arrows](https://mods.vintagestory.at/show/mod/44358) and [Fire Arrows Combat Overhaul Compat]() mods. The reason Combat Overhaul compatibility was split up was because Vintage Story queries all types when sandboxing the mods, so you can't make use of the .NET Runtime's lazy loading for building a single mod 
+This is a monorepo containing The [Fire Arrows](https://mods.vintagestory.at/show/mod/44358) and [Fire Arrows Combat Overhaul Compat](https://mods.vintagestory.at/show/mod/46062) mods. The reason Combat Overhaul compatibility was split up was because Vintage Story queries all types when sandboxing the mods, so you can't make use of the .NET Runtime's lazy loading for building a single mod 
 
 ## TODOs:
 - [x] ~~Make the arrows turn off when they touch water~~ *Added in v0.0.2*
@@ -19,4 +19,4 @@ This is a monorepo containing The [Fire Arrows](https://mods.vintagestory.at/sho
 - [ ] Split this into tiers and add modifiers to the arrows. Using resin, for example, could make them last longer. Currently it's just dry grass and they last 60 seconds, but I want to make this more nuanced
 - [ ] Light certain entities on fire if you hit them with these lol
 - [ ] Secret easter egg that my girlfriend requested
-- [ ] Add some images to the mod page lmao
+- [x] ~~Add some images to the mod page lmao~~ *Done*
