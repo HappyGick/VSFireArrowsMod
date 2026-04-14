@@ -8,12 +8,12 @@
             "name": "Launch Client (Debug)",
             "type": "coreclr",
             "request": "launch",
-            "program": "${env:VINTAGE_STORY}/Vintagestory.exe",
+            "program": "${env:VINTAGE_STORY_DEV}/Vintagestory.exe",
             "linux": {
-                "program": "${env:VINTAGE_STORY}/Vintagestory"
+                "program": "${env:VINTAGE_STORY_DEV}/Vintagestory"
             },
             "osx": {
-                "program": "${env:VINTAGE_STORY}/Vintagestory"
+                "program": "${env:VINTAGE_STORY_DEV}/Vintagestory"
             },
             "preLaunchTask": "build",
             "args": [
@@ -24,6 +24,8 @@
                 "${workspaceFolder}/bin/Debug/Mods",
                 "--addOrigin",
                 "${workspaceFolder}/assets",
+                "--dataPath",
+                "${env:VINTAGE_STORY_DEV_DATA}"
             ],
             "console": "internalConsole",
             "stopAtEntry": false
@@ -32,12 +34,12 @@
             "name": "Launch Server",
             "type": "coreclr",
             "request": "launch",
-            "program": "${env:VINTAGE_STORY}/VintagestoryServer.exe",
+            "program": "${env:VINTAGE_STORY_DEV}/VintagestoryServer.exe",
             "linux": {
-                "program": "${env:VINTAGE_STORY}/VintagestoryServer"
+                "program": "${env:VINTAGE_STORY_DEV}/VintagestoryServer"
             },
             "osx": {
-                "program": "${env:VINTAGE_STORY}/VintagestoryServer"
+                "program": "${env:VINTAGE_STORY_DEV}/VintagestoryServer"
             },
             "preLaunchTask": "build",
             "args": [
@@ -46,6 +48,8 @@
                 "${workspaceFolder}/bin/Debug/Mods",
                 "--addOrigin",
                 "${workspaceFolder}/assets",
+                "--dataPath",
+                "${env:VINTAGE_STORY_DEV_DATA}"
             ],
             "console": "internalConsole",
             "stopAtEntry": false

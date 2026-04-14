@@ -9,7 +9,7 @@
                 "build",
                 "-c",
                 "Debug",
-                "${workspaceFolder}/FireArrows.sln"
+                "${workspaceFolder}/FireArrows/FireArrows.csproj"
             ],
             "problemMatcher": "$msCompile"
         },
