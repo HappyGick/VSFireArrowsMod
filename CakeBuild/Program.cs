@@ -1,6 +1,6 @@
 using System;
 using System.IO;
-using System.Collections.Generic;
+using System.Linq;
 using Cake.Common;
 using Cake.Common.IO;
 using Cake.Common.Tools.DotNet;
@@ -77,8 +77,10 @@ public sealed class BuildTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
+        string[] excludedProjects = context.Arguments.GetArgument("exclude").Split(',');
         foreach (var mod in BuildContext.Mods)
         {
+            if (excludedProjects.Contains(mod.ProjectName)) continue;
             var csproj = $"../{mod.ProjectDir}/{mod.ProjectName}.csproj";
 
             context.DotNetClean(csproj,
@@ -105,8 +107,10 @@ public sealed class PackageTask : FrostingTask<BuildContext>
         context.EnsureDirectoryExists("../Releases");
         context.CleanDirectory("../Releases");
 
+        string[] excludedProjects = context.Arguments.GetArgument("exclude").Split(',');
         foreach (var mod in BuildContext.Mods)
         {
+            if (excludedProjects.Contains(mod.ProjectName)) continue;
             var modInfo = context.DeserializeJsonFromFile<ModInfo>($"../{mod.ProjectDir}/modinfo.json");
             var modName = modInfo.ModID;
             var version = modInfo.Version;
