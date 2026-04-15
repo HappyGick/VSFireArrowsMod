@@ -10,8 +10,8 @@
 	},
 	"textures": {
 		"material": "game:block/metal/ingot/copper",
-		"feather2": "game:item/tool/material/feather2",
-		"handle": "game:item/tool/material/handle"
+		"feather2": "game:item/tool/feather",
+		"handle": "game:item/tool/handle"
 	},
 	"elements": [
 		{
@@ -234,12 +234,7 @@
 					"rotationX": -45.0,
 					"rotationY": -1.0,
 					"faces": {
-						"north": { "texture": "#feather2", "uv": [ 0.0, 0.0, 5.5, 4.0 ], "enabled": false },
-						"east": { "texture": "#feather", "uv": [ 0.0, 0.0, 0.5, 4.0 ], "enabled": false },
-						"south": { "texture": "#feather2", "uv": [ 6.0, 10.0, 10.0, 15.5 ], "rotation": 270 },
-						"west": { "texture": "#feather", "uv": [ 0.0, 0.0, 0.5, 4.0 ], "enabled": false },
-						"up": { "texture": "#feather2", "uv": [ 0.0, 0.0, 5.5, 0.5 ], "enabled": false },
-						"down": { "texture": "#feather", "uv": [ 0.0, 0.0, 5.5, 0.5 ], "enabled": false }
+						"south": { "texture": "#feather2", "uv": [ 6.0, 10.0, 10.0, 15.5 ], "rotation": 270 }
 					}
 				},
 				{
@@ -251,12 +246,7 @@
 					"rotationX": 45.0,
 					"rotationY": -1.0,
 					"faces": {
-						"north": { "texture": "#feather2", "uv": [ 0.0, 0.0, 5.5, 4.0 ], "enabled": false },
-						"east": { "texture": "#feather", "uv": [ 0.0, 0.0, 0.5, 4.0 ], "enabled": false },
-						"south": { "texture": "#feather2", "uv": [ 6.0, 10.0, 10.0, 15.5 ], "rotation": 270 },
-						"west": { "texture": "#feather", "uv": [ 0.0, 0.0, 0.5, 4.0 ], "enabled": false },
-						"up": { "texture": "#feather2", "uv": [ 0.0, 0.0, 5.5, 0.5 ], "enabled": false },
-						"down": { "texture": "#feather", "uv": [ 0.0, 0.0, 5.5, 0.5 ], "enabled": false }
+						"south": { "texture": "#feather2", "uv": [ 6.0, 10.0, 10.0, 15.5 ], "rotation": 270 }
 					}
 				},
 				{
