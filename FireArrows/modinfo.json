@@ -9,6 +9,6 @@
     "description": "Adds Fire Arrows for lighting your caves",
     "version": "0.1.1",
     "dependencies": {
-        "game": "1.21.0"
+        "game": "1.22.0-rc.1"
     }
 }
