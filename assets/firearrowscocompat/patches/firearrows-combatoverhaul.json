@@ -1,10 +1,5 @@
 [
     {
-        "dependsOn": [
-            {
-                "modid": "combatoverhaul"
-            }
-        ],
         "file": "firearrows:itemtypes/firearrow",
         "path": "/behaviors",
         "op": "addmerge",
@@ -33,11 +28,6 @@
         ]
     },
     {
-        "dependsOn": [
-            {
-                "modid": "combatoverhaul"
-            }
-        ],
         "file": "firearrows:entities/firearrow",
         "path": "/classByType",
         "op": "replace",
@@ -47,11 +37,6 @@
         }
     },
     {
-        "dependsOn": [
-            {
-                "modid": "combatoverhaul"
-            }
-        ],
         "file": "firearrows:entities/firearrow",
         "path": "/client/behaviors",
         "op": "replace",
@@ -68,11 +53,6 @@
         ]
     },
     {
-        "dependsOn": [
-            {
-                "modid": "combatoverhaul"
-            }
-        ],
         "file": "firearrows:entities/firearrow",
         "path": "/server/behaviors/0",
         "op": "replace",
@@ -84,11 +64,6 @@
         }
     },
     {
-        "dependsOn": [
-            {
-                "modid": "combatoverhaul"
-            }
-        ],
         "file": "firearrows:entities/firearrow",
         "path": "/client/size",
         "op": "replace",
