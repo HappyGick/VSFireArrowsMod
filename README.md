@@ -1,11 +1,9 @@
 # Fire Arrows
-This mod I made specifically for me and my girlfriend's server. She loves to hunt, fight monsters, and use spears and arrows (fell in love with the bow as soon as she got one), and said that it would be nice if the game had stuff to light caves from a distance (besides throwing torches to the ground). That reminded me of how Terraria had light-emitting arrows that could be used to light caves, so I set out to make a simple mod for this: Fire Arrows!
+This mod I initially made specifically for me and my girlfriend's server. She loves to hunt, fight monsters, and use spears and arrows (fell in love with the bow as soon as she got one), and said that it would be nice if the game had stuff to light caves from a distance (besides throwing torches to the ground). That reminded me of how Terraria had light-emitting arrows that could be used to light caves, so I set out to make a simple mod for this: Fire Arrows!
 
 The mod simply adds Fire Arrows that you can craft with grid crafting and require little resources besides a lit torch and basic arrowmaking ingredients. The recipe you can find in the Handbook.
 
 In real life, fire arrows were used in past wars to light structures on fire and to lower enemy morale. They weren't used for hitting enemies due to excessive weight (which makes them slow), and the fact that they can't really penetrate armor due to lack of sharpness. So the arrows I added are about as useful as crude arrows for combat, except they break a lot less, but they don't inflict fire ticking or anything. They're meant to be used for setting temporary (they last aprox. 60s) light sources from a distance.
-
-I'll maybe perfect this mod in my free time (for example with better visuals), in the meantime, any features I add are specifically for my girlfriend and I.
 
 ## In this repo
 This is a monorepo containing The [Fire Arrows](https://mods.vintagestory.at/show/mod/44358) and [Fire Arrows Combat Overhaul Compat](https://mods.vintagestory.at/show/mod/46062) mods. The reason Combat Overhaul compatibility was split up was because Vintage Story queries all types when sandboxing the mods, so you can't make use of the .NET Runtime's lazy loading for building a single mod 
